@@ -5,36 +5,45 @@ import Icon from "@/components/ui/icon";
 import { Separator } from "@/components/ui/separator";
 
 const Index = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <section className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           <div className="space-y-8 animate-fade-in">
             <Badge variant="outline" className="text-sm tracking-wide">
-              ОНЛАЙН-КУРС
+              ПРАКТИЧЕСКИЙ ОНЛАЙН-КУРС ИРИНЫ ХАКАМАДА
             </Badge>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight text-foreground">
-              Обретите ясность в условиях неопределённости
+              Научитесь управлять своим состоянием и жизненными решениями — в любой точке неопределённости
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-              Авторская методика для построения внутренней опоры, принятия осознанных решений и создания смысла в сложные времена
+              О том, как сохранять ясность, устойчивость и внутренний баланс в реальной жизни, а не в теории
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
                 size="lg" 
                 className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => scrollToSection('price')}
               >
-                Записаться на курс
+                Начать конструировать своё счастье
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="text-lg px-8 py-6"
+                onClick={() => scrollToSection('for-whom')}
               >
-                Узнать больше
+                Посмотреть, как это работает
               </Button>
             </div>
           </div>
@@ -43,7 +52,7 @@ const Index = () => {
             <div className="aspect-[3/4] rounded-sm overflow-hidden">
               <img 
                 src="https://cdn.poehali.dev/projects/d4613738-f67f-488d-8d6d-123764ed368a/files/26003228-8f5b-437c-9b98-a2a8647f4c0c.jpg"
-                alt="Expert portrait"
+                alt="Ирина Хакамада"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -51,7 +60,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="bg-muted py-16 md:py-24">
+      <section id="for-whom" className="bg-muted py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="text-4xl md:text-5xl text-center mb-16">
             Этот курс для вас, если вы
@@ -308,7 +317,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="bg-muted py-16 md:py-24">
+      <section id="price" className="bg-muted py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center space-y-8">
             <h2 className="text-4xl md:text-5xl">
